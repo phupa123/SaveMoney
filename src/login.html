@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เข้าสู่ระบบ - MoneyFlow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">💸</span>
+                <span class="logo-text">MoneyFlow</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="login.html" class="active">เข้าสู่ระบบ</a></li>
+                <li><a href="register.html">สมัครสมาชิก</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Form -->
+    <section class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="logo" style="justify-content: center; margin-bottom: 1rem;">
+                    <span class="logo-icon">💸</span>
+                </div>
+                <h1>ยินดีต้อนรับกลับ! 👋</h1>
+                <p>เข้าสู่ระบบเพื่อจัดการการเงินของคุณ</p>
+            </div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">อีเมล</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="your@email.com" 
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">รหัสผ่าน</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="••••••••" 
+                        required
+                    >
+                </div>
+
+                <div class="form-group" style="display: flex; justify-content: space-between; align-items: center;">
+                    <label style="display: flex; align-items: center; gap: 0.5rem; margin: 0; cursor: pointer;">
+                        <input type="checkbox" name="remember" style="width: auto;">
+                        <span style="font-size: 0.9rem; color: var(--text-secondary);">จดจำฉัน</span>
+                    </label>
+                    <a href="#" style="color: var(--primary-color); font-size: 0.9rem; text-decoration: none;">ลืมรหัสผ่าน?</a>
+                </div>
+
+                <button type="submit" class="btn btn-primary auth-btn">
+                    เข้าสู่ระบบ 🚀
+                </button>
+            </form>
+
+            <div class="divider">
+                <span>หรือเข้าสู่ระบบด้วย</span>
+            </div>
+
+            <div class="social-login">
+                <button class="social-btn">
+                    <span>🔵</span>
+                    <span>Google</span>
+                </button>
+                <button class="social-btn">
+                    <span>📘</span>
+                    <span>Facebook</span>
+                </button>
+            </div>
+
+            <div class="auth-footer">
+                ยังไม่มีบัญชี? <a href="register.html">สมัครสมาชิกฟรี</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
