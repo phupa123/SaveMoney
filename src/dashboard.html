@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แดชบอร์ด - MoneyFlow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">💸</span>
+                <span class="logo-text">MoneyFlow</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="dashboard.html" class="active">แดชบอร์ด</a></li>
+                <li><a href="#" onclick="logout()">ออกจากระบบ</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard -->
+    <section class="dashboard">
+        <div class="container">
+            <div class="dashboard-header">
+                <div>
+                    <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">แดชบอร์ดของฉัน 🎯</h1>
+                    <p style="color: var(--text-secondary);">ภาพรวมการเงินของคุณในเดือนนี้</p>
+                </div>
+                <button class="btn btn-primary" onclick="showAddTransactionModal()">
+                    + เพิ่มรายการใหม่
+                </button>
+            </div>
+
+            <!-- Summary Cards -->
+            <div class="dashboard-grid">
+                <div class="summary-card balance">
+                    <div class="summary-label">ยอดคงเหลือ</div>
+                    <div class="summary-amount">฿25,450</div>
+                </div>
+
+                <div class="summary-card income">
+                    <div class="summary-label">รายรับเดือนนี้</div>
+                    <div class="summary-amount positive">+฿45,000</div>
+                </div>
+
+                <div class="summary-card expense">
+                    <div class="summary-label">รายจ่ายเดือนนี้</div>
+                    <div class="summary-amount negative">-฿19,550</div>
+                </div>
+            </div>
+
+            <!-- Recent Transactions -->
+            <div style="margin-top: 2rem;">
+                <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">รายการล่าสุด 📝</h2>
+                
+                <div class="auth-card" style="max-width: 100%; padding: 0;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <th style="padding: 1rem; text-align: left; color: var(--text-secondary);">รายการ</th>
+                                <th style="padding: 1rem; text-align: left; color: var(--text-secondary);">หมวดหมู่</th>
+                                <th style="padding: 1rem; text-align: left; color: var(--text-secondary);">วันที่</th>
+                                <th style="padding: 1rem; text-align: right; color: var(--text-secondary);">จำนวนเงิน</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactionsTable">
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 1rem;">💼 เงินเดือน</td>
+                                <td style="padding: 1rem;"><span style="background: rgba(0,217,165,0.1); color: var(--success-color); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem;">รายรับ</span></td>
+                                <td style="padding: 1rem; color: var(--text-secondary);">1 ม.ค. 2024</td>
+                                <td style="padding: 1rem; text-align: right; color: var(--success-color); font-weight: 600;">+฿45,000</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 1rem;">🍜 ค่าอาหาร</td>
+                                <td style="padding: 1rem;"><span style="background: rgba(252,129,129,0.1); color: var(--danger-color); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem;">รายจ่าย</span></td>
+                                <td style="padding: 1rem; color: var(--text-secondary);">2 ม.ค. 2024</td>
+                                <td style="padding: 1rem; text-align: right; color: var(--danger-color); font-weight: 600;">-฿3,200</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 1rem;">🚕 ค่าเดินทาง</td>
+                                <td style="padding: 1rem;"><span style="background: rgba(252,129,129,0.1); color: var(--danger-color); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem;">รายจ่าย</span></td>
+                                <td style="padding: 1rem; color: var(--text-secondary);">3 ม.ค. 2024</td>
+                                <td style="padding: 1rem; text-align: right; color: var(--danger-color); font-weight: 600;">-฿1,500</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 1rem;">🛒 ช้อปปิ้ง</td>
+                                <td style="padding: 1rem;"><span style="background: rgba(252,129,129,0.1); color: var(--danger-color); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem;">รายจ่าย</span></td>
+                                <td style="padding: 1rem; color: var(--text-secondary);">4 ม.ค. 2024</td>
+                                <td style="padding: 1rem; text-align: right; color: var(--danger-color); font-weight: 600;">-฿5,850</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 1rem;">🎬 ดูหนัง</td>
+                                <td style="padding: 1rem;"><span style="background: rgba(252,129,129,0.1); color: var(--danger-color); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem;">รายจ่าย</span></td>
+                                <td style="padding: 1rem; color: var(--text-secondary);">5 ม.ค. 2024</td>
+                                <td style="padding: 1rem; text-align: right; color: var(--danger-color); font-weight: 600;">-฿900</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div style="margin-top: 2rem;">
+                <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">สถิติการใช้จ่าย 📊</h2>
+                <div class="dashboard-grid">
+                    <div class="summary-card">
+                        <h3 style="margin-bottom: 1rem;">หมวดหมู่ที่ใช้จ่ายมากที่สุด</h3>
+                        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
+                                    <span>🍜 อาหาร</span>
+                                    <span style="color: var(--text-secondary);">35%</span>
+                                </div>
+                                <div style="height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden;">
+                                    <div style="height: 100%; width: 35%; background: var(--primary-gradient);"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
+                                    <span>🛒 ช้อปปิ้ง</span>
+                                    <span style="color: var(--text-secondary);">30%</span>
+                                </div>
+                                <div style="height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden;">
+                                    <div style="height: 100%; width: 30%; background: var(--secondary-gradient);"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
+                                    <span>🚕 เดินทาง</span>
+                                    <span style="color: var(--text-secondary);">20%</span>
+                                </div>
+                                <div style="height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden;">
+                                    <div style="height: 100%; width: 20%; background: var(--accent-gradient);"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
+                                    <span>🎬 ความบันเทิง</span>
+                                    <span style="color: var(--text-secondary);">15%</span>
+                                </div>
+                                <div style="height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden;">
+                                    <div style="height: 100%; width: 15%; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="summary-card">
+                        <h3 style="margin-bottom: 1rem;">เป้าหมายการออม</h3>
+                        <div style="text-align: center; padding: 1rem;">
+                            <div style="font-size: 2.5rem; font-weight: 700; background: var(--success-color); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                                ฿50,000
+                            </div>
+                            <p style="color: var(--text-secondary); margin: 0.5rem 0;">เป้าหมายปี 2024</p>
+                            <div style="margin-top: 1rem;">
+                                <div style="height: 12px; background: rgba(255,255,255,0.1); border-radius: 6px; overflow: hidden;">
+                                    <div style="height: 100%; width: 51%; background: var(--success-color); border-radius: 6px;"></div>
+                                </div>
+                                <p style="color: var(--text-secondary); margin-top: 0.5rem; font-size: 0.9rem;">ออมแล้ว ฿25,450 จาก ฿50,000</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+        // Check if user is logged in (mock implementation)
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        if (!isLoggedIn) {
+            window.location.href = 'login.html';
+        }
+
+        function logout() {
+            localStorage.removeItem('isLoggedIn');
+            window.location.href = 'index.html';
+        }
+
+        function showAddTransactionModal() {
+            alert('ฟีเจอร์เพิ่มรายการกำลังจะมาเร็วๆ นี้! 🔜');
+        }
+    </script>
+</body>
+</html>

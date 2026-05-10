@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สมัครสมาชิก - MoneyFlow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">💸</span>
+                <span class="logo-text">MoneyFlow</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="login.html">เข้าสู่ระบบ</a></li>
+                <li><a href="register.html" class="active">สมัครสมาชิก</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Register Form -->
+    <section class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="logo" style="justify-content: center; margin-bottom: 1rem;">
+                    <span class="logo-icon">💸</span>
+                </div>
+                <h1>สร้างบัญชีใหม่ ✨</h1>
+                <p>เริ่มต้นเดินทางสู่การมีวินัยทางการเงิน</p>
+            </div>
+
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="fullname">ชื่อ-นามสกุล</label>
+                    <input 
+                        type="text" 
+                        id="fullname" 
+                        name="fullname" 
+                        placeholder="สมชาย ใจดี" 
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="email">อีเมล</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="your@email.com" 
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">เบอร์โทรศัพท์</label>
+                    <input 
+                        type="tel" 
+                        id="phone" 
+                        name="phone" 
+                        placeholder="08X-XXX-XXXX" 
+                        pattern="[0-9]{10}"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">รหัสผ่าน</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="••••••••" 
+                        minlength="8"
+                        required
+                    >
+                    <small style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.5rem; display: block;">
+                        อย่างน้อย 8 ตัวอักษร
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">ยืนยันรหัสผ่าน</label>
+                    <input 
+                        type="password" 
+                        id="confirmPassword" 
+                        name="confirmPassword" 
+                        placeholder="••••••••" 
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label style="display: flex; align-items: flex-start; gap: 0.5rem; cursor: pointer;">
+                        <input type="checkbox" name="terms" style="width: auto; margin-top: 0.2rem;" required>
+                        <span style="font-size: 0.9rem; color: var(--text-secondary);">
+                            ฉันยอมรับ <a href="#" style="color: var(--primary-color);">เงื่อนไขการใช้งาน</a> และ <a href="#" style="color: var(--primary-color);">นโยบายความเป็นส่วนตัว</a>
+                        </span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary auth-btn">
+                    สร้างบัญชีฟรี 🎉
+                </button>
+            </form>
+
+            <div class="divider">
+                <span>หรือลงทะเบียนด้วย</span>
+            </div>
+
+            <div class="social-login">
+                <button class="social-btn">
+                    <span>🔵</span>
+                    <span>Google</span>
+                </button>
+                <button class="social-btn">
+                    <span>📘</span>
+                    <span>Facebook</span>
+                </button>
+            </div>
+
+            <div class="auth-footer">
+                มีบัญชีอยู่แล้ว? <a href="login.html">เข้าสู่ระบบ</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
